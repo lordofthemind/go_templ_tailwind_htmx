@@ -8,6 +8,7 @@
 ├── configs
 ├── docs
 ├── go.mod
+├── go.sum
 ├── initilizer
 ├── internal
 │   ├── errs
@@ -36,7 +37,11 @@
 ├── scripts
 ├── servers
 ├── static
+│   └── css
+│       ├── index.css
+│       └── output.css
 ├── templates
+│   └── index.templ
 └── tree.txt
 
-33 directories, 7 files
+34 directories, 11 files
