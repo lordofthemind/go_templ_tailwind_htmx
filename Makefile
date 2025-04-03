@@ -21,6 +21,10 @@ twc:
 templ:
 	$(TEMPL) generate
 
+watch:
+	twc -i static/css/index.css -o static/css/output.css --watch --content "./templates/**/*.templ" --content "./internal/**/*.go"
+
+
 ## Run Go server
 run:
 	$(GO) run main.go

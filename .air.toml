@@ -6,8 +6,9 @@ tmp_dir = "tmp"
 [build]
   args_bin = []
   bin = "./tmp/gotth"
-  cmd = "go build -o ./tmp/gotth ."
+  cmd = "templ generate && go build -o ./tmp/gotth ."
   delay = 1000
+  include_ext = ["go", "templ", "html"]
   exclude_dir = ["assets", "tmp", "vendor", "testdata"]
   exclude_file = []
   exclude_regex = ["_test.go"]
@@ -17,7 +18,7 @@ tmp_dir = "tmp"
   include_dir = []
   include_ext = ["go", "tpl", "templ", "html"]
   include_file = []
-  kill_delay = "0s"
+  kill_delay = "500ms"
   log = "build-errors.log"
   poll = false
   poll_interval = 0
@@ -38,7 +39,7 @@ tmp_dir = "tmp"
 [log]
   main_only = false
   silent = false
-  time = false
+  time = true
 
 [misc]
   clean_on_exit = true
@@ -47,7 +48,7 @@ tmp_dir = "tmp"
   app_port = 0
   enabled = false
   proxy_port = 0
-
+  
 [screen]
   clear_on_rebuild = true
   keep_scroll = true
