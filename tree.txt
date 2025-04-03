@@ -1,0 +1,42 @@
+.
+├── LICENCE
+├── Makefile
+├── Readme.md
+├── builds
+│   └── linux
+├── cmd
+├── configs
+├── docs
+├── go.mod
+├── initilizer
+├── internal
+│   ├── errs
+│   ├── facade
+│   ├── handlers
+│   ├── helpers
+│   ├── repositories
+│   │   ├── cockroachdb
+│   │   ├── mongodb
+│   │   ├── postgresdb
+│   │   └── redisdb
+│   ├── routes
+│   ├── seeders
+│   ├── services
+│   ├── types
+│   └── validators
+├── logs
+├── main.go
+├── pkg
+├── prompt.txt
+├── resources
+│   ├── bash
+│   ├── json
+│   ├── keys
+│   └── ssl
+├── scripts
+├── servers
+├── static
+├── templates
+└── tree.txt
+
+33 directories, 7 files
