@@ -39,14 +39,11 @@
 ├── static
 │   └── css
 │       ├── index.css
-│       └── output.css
+│       └── style.css
 ├── templates
 │   ├── index.templ
 │   ├── index_templ.go
 │   └── templates.go
-├── tmp
-│   ├── gotth
-│   └── main
 └── tree.txt
 
-35 directories, 15 files
+34 directories, 13 files
