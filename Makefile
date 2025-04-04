@@ -29,6 +29,8 @@ watch:
 run:
 	$(GO) run main.go
 
+gun:
+	go build -o ./tmp/gotth ./main.go && air
 
 ## Dev: Templ + Tailwind + Run server (each in its own terminal)
 dev:

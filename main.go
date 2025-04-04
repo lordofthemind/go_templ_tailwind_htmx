@@ -24,6 +24,6 @@ func main() {
 		}
 	})
 
-	log.Println("Server running at http://localhost:3000")
-	log.Fatal(http.ListenAndServe(":3000", mux))
+	log.Println("Server running at http://localhost:9090")
+	log.Fatal(http.ListenAndServe(":9090", mux))
 }

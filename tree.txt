@@ -41,7 +41,12 @@
 │       ├── index.css
 │       └── output.css
 ├── templates
-│   └── index.templ
+│   ├── index.templ
+│   ├── index_templ.go
+│   └── templates.go
+├── tmp
+│   ├── gotth
+│   └── main
 └── tree.txt
 
-34 directories, 11 files
+35 directories, 15 files
