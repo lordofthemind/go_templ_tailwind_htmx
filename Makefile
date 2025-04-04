@@ -39,7 +39,7 @@ stpcntr: ## Stop PostgreSQL container
 rmvcntr: ## Remove PostgreSQL container
 	docker rm $(PG_CONTAINER_NAME)
 
-rmvpgdata: ## Remove PostgreSQL container volume
+rmvpgvol: ## Remove PostgreSQL container volume
 	docker volume rm $(PG_CONTAINER_NAME)
 
 crtdb: ## Create PostgreSQL database
@@ -52,7 +52,10 @@ drpdb: ## Drop PostgreSQL database
 # 🍃 MongoDB Container Commands
 # -------------------------------
 runmongo: ## Run MongoDB container
-	docker run --name $(MONGO_CONTAINER_NAME) -p $(MONGO_PORT):27017 -e MONGO_INITDB_ROOT_USERNAME=$(MONGO_USERNAME) -e MONGO_INITDB_ROOT_PASSWORD=$(MONGO_PASSWORD) -d mongo:$(MONGO_IMAGE_TAG)
+	docker run --name $(MONGO_CONTAINER_NAME) -p $(MONGO_PORT):27017 \
+	-e MONGO_INITDB_ROOT_USERNAME=$(MONGO_USERNAME) \
+	-e MONGO_INITDB_ROOT_PASSWORD=$(MONGO_PASSWORD) \
+	-d mongo:$(MONGO_IMAGE_TAG)
 
 strmongo: ## Start MongoDB container
 	docker start $(MONGO_CONTAINER_NAME)
@@ -63,7 +66,7 @@ stpmongo: ## Stop MongoDB container
 rmvmongo: ## Remove MongoDB container
 	docker rm $(MONGO_CONTAINER_NAME)
 
-rmvmongodata: ## Remove MongoDB container volume
+rmvmongovol: ## Remove MongoDB container volume
 	docker volume rm $(MONGO_CONTAINER_NAME)
 
 mongocli: ## Open MongoDB shell
@@ -73,7 +76,9 @@ mongocli: ## Open MongoDB shell
 # 🐳 Redis Container Commands
 # -------------------------------
 runredis: ## Run Redis container
-	docker run --name $(REDIS_CONTAINER_NAME) -p $(REDIS_PORT):6379 -e REDIS_PASSWORD=$(REDIS_PASSWORD) -d redis:$(REDIS_IMAGE_TAG) redis-server --requirepass $(REDIS_PASSWORD)
+	docker run --name $(REDIS_CONTAINER_NAME) -p $(REDIS_PORT):6379 \
+	-e REDIS_PASSWORD=$(REDIS_PASSWORD) -d redis:$(REDIS_IMAGE_TAG) \
+	redis-server --requirepass $(REDIS_PASSWORD)
 
 strredis: ## Start Redis container
 	docker start $(REDIS_CONTAINER_NAME)
@@ -84,7 +89,7 @@ stpredis: ## Stop Redis container
 rmvredis: ## Remove Redis container
 	docker rm $(REDIS_CONTAINER_NAME)
 
-rmvrddata: ## Remove Redis container volume
+rmvrdvol: ## Remove Redis container volume
 	docker volume rm $(REDIS_CONTAINER_NAME)
 
 rediscli: ## Open Redis CLI with password
@@ -137,26 +142,26 @@ test: ## Run Go tests
 fmt: ## Format Go code
 	go fmt ./...
 
-pcmt: ## Run pre-commit checks (fmt + lint)
+pre_cmt: ## Run pre-commit checks (fmt + lint)
 	$(MAKE) fmt
 	$(MAKE) lint
 
 # -------------------------------
 # 🔨 Build Binaries
 # -------------------------------
-bwin: ## Build for Wibndows (amd64)
+build_win: ## Build for Windows (amd64)
 	GOOS=windows GOARCH=amd64 go build -o ./builds/win/Gotth.exe main.go
 
-blin: ## Build for Linux (amd64)
+build_lin: ## Build for Linux (amd64)
 	GOOS=linux GOARCH=amd64 go build -o ./builds/linux/Gotth main.go
 
-bmac: ## Build for macOS (amd64)
+build_mac: ## Build for macOS (amd64)
 	GOOS=darwin GOARCH=amd64 go build -o ./builds/mac/Gotth main.go
 
 build: ## Build for all platforms
-	$(MAKE) bwin
-	$(MAKE) blin
-	$(MAKE) bmac
+	$(MAKE) build_win
+	$(MAKE) build_lin
+	$(MAKE) build_mac
 
 # -------------------------------
 # 📖 Help
@@ -164,5 +169,30 @@ build: ## Build for all platforms
 help: ## Show all Makefile targets
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-22s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: runcntr strcntr stpcntr rmvcntr rmvdata crtdb drpdb runredis strredis stpredis rmvredis rmvredisdata rediscli \
-cnfg completion mgrt seed serv lint test fmt pre_cmt build_win build_lin build_mac build help tmpl run gun twc
+# -------------------------------
+# 📌 Phony Targets
+# -------------------------------
+
+# PostgreSQL
+.PHONY: runcntr strcntr stpcntr rmvcntr rmvpgvol crtdb drpdb
+
+# MongoDB
+.PHONY: runmongo strmongo stpmongo rmvmongo rmvmongovol mongocli
+
+# Redis
+.PHONY: runredis strredis stpredis rmvredis rmvrdvol rediscli
+
+# CLI
+.PHONY: cnfg completion mgrt seed serv
+
+# Dev Tools
+.PHONY: tmpl twc run gun
+
+# Lint/Test/Format
+.PHONY: lint test fmt pre_cmt
+
+# Build
+.PHONY: build_win build_lin build_mac build
+
+# Help
+.PHONY: help
