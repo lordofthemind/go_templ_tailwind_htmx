@@ -46,6 +46,8 @@
 │   ├── base_templ.go
 │   ├── footer.templ
 │   ├── footer_templ.go
+│   ├── greet.templ
+│   ├── greet_templ.go
 │   ├── index.templ
 │   ├── index_templ.go
 │   ├── nav.templ
@@ -53,8 +55,6 @@
 │   ├── signup.templ
 │   ├── signup_templ.go
 │   └── templates.go
-├── tmp
-│   └── gotth
 └── tree.txt
 
-34 directories, 24 files
+33 directories, 25 files
