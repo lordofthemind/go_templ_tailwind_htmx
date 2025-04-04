@@ -1,0 +1,22 @@
+package templates
+
+templ Base(title string, content templ.Component) {
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>{title}</title>
+      <link rel="stylesheet" href="/static/css/style.css" />
+      <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+    </head>
+
+    <body class="bg-gradient-to-r from-green-100 via-green-200 to-green-300 min-h-screen">
+      <div class="max-w-4xl mx-auto p-6">
+        @Nav()
+        <main>@content</main>
+        @Footer()
+      </div>
+    </body>
+  </html>
+}

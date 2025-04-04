@@ -1,22 +1,25 @@
 package templates
 
 templ SignupPage() {
-  <div class="max-w-md mx-auto mt-16 p-8 bg-white shadow-xl rounded-xl space-y-6">
-    <h2 class="text-2xl font-bold text-green-700">Sign up for Updates</h2>
+@Base("Signup", SignupContent())
+}
 
-    <form hx-post="/signup" hx-target="#signup-response" hx-swap="innerHTML" class="space-y-4">
-      <input type="text" name="name" placeholder="Your name"
-        class="w-full border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-300" required />
+templ SignupContent() {
+<div class="p-8 bg-white shadow-xl rounded-xl space-y-6 max-w-md mx-auto">
+  <h2 class="text-2xl font-bold text-green-700">Sign up for Updates</h2>
 
-      <input type="email" name="email" placeholder="Your email"
-        class="w-full border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-300" required />
+  <form hx-post="/signup" hx-target="#signup-response" hx-swap="innerHTML" class="space-y-4">
+    <input type="text" name="name" placeholder="Your name"
+      class="w-full border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-300" required />
 
-      <button type="submit"
-        class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
-        Sign Up
-      </button>
-    </form>
+    <input type="email" name="email" placeholder="Your email"
+      class="w-full border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-300" required />
 
-    <div id="signup-response" class="text-green-600 font-semibold"></div>
-  </div>
+    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+      Sign Up
+    </button>
+  </form>
+
+  <div id="signup-response" class="text-green-600 font-semibold"></div>
+</div>
 }

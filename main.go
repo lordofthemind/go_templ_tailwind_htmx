@@ -34,6 +34,13 @@ func main() {
 	})
 
 	mux.HandleFunc("/signup", func(w http.ResponseWriter, r *http.Request) {
+		err := templates.SignupPage().Render(r.Context(), w)
+		if err != nil {
+			http.Error(w, "failed to render signup page", http.StatusInternalServerError)
+		}
+	})
+
+	mux.HandleFunc("/signup", func(w http.ResponseWriter, r *http.Request) {
 		name := r.FormValue("name")
 		email := r.FormValue("email")
 		// Normally you'd store this in a DB

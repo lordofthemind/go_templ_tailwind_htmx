@@ -1,19 +1,19 @@
 package templates
 
 templ AboutPage() {
-  <div class="max-w-2xl mx-auto p-8 bg-white shadow rounded-xl mt-12 space-y-4">
-    <h1 class="text-3xl font-bold text-green-700">About This Project</h1>
-    <p class="text-gray-700">This is a lightweight starter kit using Go, Templ, Tailwind CSS, and HTMX.</p>
+@Base("About", AboutContent())
+}
 
-    <button
-      class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded transition"
-      hx-get="/about-fact"
-      hx-target="#fact"
-      hx-swap="innerHTML"
-    >
-      Show Fun Fact 🤓
-    </button>
+templ AboutContent() {
+<div class="p-8 bg-white shadow rounded-xl space-y-4">
+  <h1 class="text-3xl font-bold text-green-700">About This Project</h1>
+  <p class="text-gray-700">This is a lightweight starter kit using Go, Templ, Tailwind CSS, and HTMX.</p>
 
-    <div id="fact" class="text-sm text-gray-500 italic pt-2"></div>
-  </div>
+  <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded transition" hx-get="/about-fact"
+    hx-target="#fact" hx-swap="innerHTML">
+    Show Fun Fact 🤓
+  </button>
+
+  <div id="fact" class="text-sm text-gray-500 italic pt-2"></div>
+</div>
 }

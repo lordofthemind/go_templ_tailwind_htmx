@@ -40,9 +40,21 @@
 │       ├── index.css
 │       └── style.css
 ├── templates
+│   ├── about.templ
+│   ├── about_templ.go
+│   ├── base.templ
+│   ├── base_templ.go
+│   ├── footer.templ
+│   ├── footer_templ.go
 │   ├── index.templ
 │   ├── index_templ.go
+│   ├── nav.templ
+│   ├── nav_templ.go
+│   ├── signup.templ
+│   ├── signup_templ.go
 │   └── templates.go
+├── tmp
+│   └── gotth
 └── tree.txt
 
-33 directories, 13 files
+34 directories, 24 files
