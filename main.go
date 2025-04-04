@@ -14,6 +14,8 @@ func main() {
 	fs := http.FileServer(http.Dir("static"))
 	mux.Handle("/static/", http.StripPrefix("/static/", fs))
 
+	//hehehe
+
 	// Serve the Templ page
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		err := templates.IndexPage().Render(r.Context(), w)

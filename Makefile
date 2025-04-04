@@ -29,6 +29,7 @@ watch:
 run:
 	$(GO) run main.go
 
+
 ## Dev: Templ + Tailwind + Run server (each in its own terminal)
 dev:
 	@echo "🔄 Dev requires 3 terminals:"
