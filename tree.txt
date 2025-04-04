@@ -3,7 +3,6 @@
 ├── Makefile
 ├── Readme.md
 ├── builds
-│   └── linux
 ├── cmd
 ├── configs
 ├── docs
@@ -46,4 +45,4 @@
 │   └── templates.go
 └── tree.txt
 
-34 directories, 13 files
+33 directories, 13 files
