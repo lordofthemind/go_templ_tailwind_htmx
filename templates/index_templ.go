@@ -30,7 +30,7 @@ func IndexPage() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Tailwind 4 + Go + Templ</title><link rel=\"stylesheet\" href=\"/static/css/output.css\"></head><body class=\"bg-gray-100 min-h-screen flex items-center justify-center\"><div class=\"text-center\"><h1 class=\"text-4xl font-bold text-red-600 mb-4\">Tailwind CSS v4 + Go + Templ 🎉</h1><p class=\"text-lg text-gray-700\">It just works!</p></div></body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Tailwind 4 + Go + Templ</title><link rel=\"stylesheet\" href=\"/static/css/output.css\"></head><body class=\"bg-gray-800 min-h-screen flex items-center justify-center\"><div class=\"text-center\"><h1 class=\"text-4xl font-bold text-green-600 mb-4\">Tailwind CSS v4 + Go + Templ 🎉</h1><p class=\"text-lg text-green-700\">It just works!</p></div></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
