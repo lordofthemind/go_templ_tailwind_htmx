@@ -1,0 +1,220 @@
+package templates
+
+templ AboutPage() {
+@Base("About", AboutContent())
+}
+
+templ AboutContent() {
+<div class="p-8 bg-white shadow rounded-xl space-y-4">
+  <h1 class="text-3xl font-bold text-green-700">About This Project</h1>
+  <p class="text-gray-700">This is a lightweight starter kit using Go, Templ, Tailwind CSS, and HTMX.</p>
+
+  <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded transition" hx-get="/about-fact"
+    hx-target="#fact" hx-swap="innerHTML">
+    Show Fun Fact 🤓
+  </button>
+
+  <div id="fact" class="text-sm text-gray-500 italic pt-2"></div>
+</div>
+}
+
+
+package templates
+
+templ Base(title string, content templ.Component) {
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>{title}</title>
+      <link rel="stylesheet" href="/static/css/style.css" />
+      <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+    </head>
+
+    <body class="bg-gradient-to-r from-green-100 via-green-200 to-green-300 min-h-screen">
+      <div class="max-w-4xl mx-auto p-6">
+        @Nav()
+        <main>@content</main>
+        @Footer()
+      </div>
+    </body>
+  </html>
+}
+
+package templates
+
+templ Footer() {
+  <footer class="mt-8 text-center text-sm text-gray-500 border-t pt-4">
+    Made with ❤️ using Go + Templ + Tailwind + HTMX
+  </footer>
+}
+
+
+// templates/greet.templ
+package templates
+
+templ GreetPage() {
+@Base("Greet", GreetContent())
+}
+
+templ GreetContent() {
+<div class="bg-white rounded-2xl shadow-xl p-10 max-w-lg w-full text-center space-y-6 mx-auto">
+    <h1 class="text-4xl font-bold text-green-700 mb-4">Greetings!</h1>
+
+    <div class="space-y-4">
+        <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition"
+            hx-get="/greet-message" hx-target="#greeting-response" hx-swap="innerHTML">
+            Get Greeting 👋
+        </button>
+
+        <div id="greeting-response" class="text-lg text-green-700 font-semibold">
+            <!-- Response will appear here -->
+        </div>
+    </div>
+</div>
+}
+
+package templates
+
+templ IndexPage() {
+@Base("Home", IndexContent())
+}
+
+templ IndexContent() {
+<div class="bg-white rounded-2xl shadow-xl p-10 max-w-lg w-full text-center space-y-6 mx-auto">
+  <h1 class="text-4xl font-bold text-green-700 mb-4">Go ✨ Templ ⚡ Tailwind 💨 HTMX 🚀</h1>
+  <p class="text-green-900">Welcome to your starter stack! 🎉</p>
+
+  <div class="space-y-4">
+    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+      hx-get="/greet-message" hx-target="#response" hx-swap="innerHTML" type="button">
+      Say Hello 👋
+    </button>
+
+    <div id="response" class="min-h-8 text-lg text-green-700 font-semibold">
+      <!-- HTMX response will appear here -->
+    </div>
+  </div>
+
+  <div class="pt-4 border-t border-gray-200 text-sm text-gray-400">
+    Hot reload test — try editing <code class="bg-gray-100 px-1 rounded">./templates/index.templ</code>!
+  </div>
+</div>
+}
+
+// templates/nav.templ
+package templates
+
+templ Nav() {
+<nav class="flex justify-center space-x-6 mb-6">
+  <a href="/" class="text-green-800 font-semibold hover:underline">Home</a>
+  <a href="/about" class="text-green-800 font-semibold hover:underline">About</a>
+  <a href="/greet" class="text-green-800 font-semibold hover:underline">Greet</a>
+  <a href="/signup" class="text-green-800 font-semibold hover:underline">Signup</a>
+</nav>
+}
+
+package templates
+
+templ SignupPage() {
+@Base("Signup", SignupContent())
+}
+
+templ SignupContent() {
+<div class="p-8 bg-white shadow-xl rounded-xl space-y-6 max-w-md mx-auto">
+  <h2 class="text-2xl font-bold text-green-700">Sign up for Updates</h2>
+
+  <form hx-post="/signup" hx-target="#signup-response" hx-swap="innerHTML" class="space-y-4">
+    <input type="text" name="name" placeholder="Your name"
+      class="w-full border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-300" required />
+
+    <input type="email" name="email" placeholder="Your email"
+      class="w-full border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-300" required />
+
+    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+      Sign Up
+    </button>
+  </form>
+
+  <div id="signup-response" class="text-green-600 font-semibold"></div>
+</div>
+}
+
+can u transform these all in react component, 
+
+so it can be used in this Project
+
+.
+├── README.md
+├── deno.lock
+├── eslint.config.js
+├── index.html
+├── package.json
+├── public
+│   └── vite.svg
+├── src
+│   ├── App.css
+│   ├── App.tsx
+│   ├── assets
+│   │   └── react.svg
+│   ├── index.css
+│   ├── main.tsx
+│   └── vite-env.d.ts
+├── tree.txt
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
+
+4 directories, 17 files
+
+the content of current App.tsx is
+
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <>
+      <div>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
+}
+
+export default App
+
+
+i have tailwind setupped already!!
+
+just transform those templ componenets into react components!
+
+
+individually and tell me how can i integrate those in my react Project
+
+about the project!!
+
+react_typescript_tailwind_deno/
